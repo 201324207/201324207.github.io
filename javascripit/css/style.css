@@ -1,0 +1,307 @@
+/* 初始化样式 */
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*伪元素清除浮动*/
+
+li {
+    list-style: none;
+}
+
+/* 给所有的li标签清除默认样式 */
+
+a {
+    color: black;
+}
+
+/* 给所有的a标签设置颜色 */
+
+.nav ul {
+    margin-right: 40px;
+    float: right;
+}
+
+.nav ul li {
+    float: left;
+    padding: 10px;
+}
+
+.logo {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.logo img {
+    width: 100%;
+    ;
+}
+
+.search {
+    width: 642px;
+    height: 35px;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+.search input {
+    width: 540px;
+    height: 30px;
+    float: left;
+    padding: 0;
+    outline: none;
+    border: 1px solid black;
+    border-right: 0;
+}
+
+.search button {
+    width: 100px;
+    height: 32px;
+    background-color: #4e6ef2;
+    float: right;
+    border: 0;
+    padding: 0;
+}
+
+/* 图片切换部分 */
+
+.box {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.top {
+    width: 418px;
+    height: 418px;
+}
+
+.top img {
+    width: 100%;
+}
+
+ul {
+    padding: 0 20px;
+}
+
+.box ul li {
+    margin-right: 20px;
+    height: 60px;
+    width: 60px;
+    float: left;
+    list-style: none;
+}
+
+/* 鼠标点击的时候加一个边框 */
+
+.box ul li :hover {
+    border: 2px solid black;
+}
+
+/*给小图设置大小*/
+
+ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+/* 提示信息部分 */
+
+.land {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -151px;
+    width: 302px;
+    height: 400px;
+    border-width: 5px 1px 0 4px;
+    border-style: solid;
+    border-color: #EAECEE;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #fff;
+    display: none;
+}
+
+.erweima {
+    width: 147px;
+    height: 48px;
+    float: left;
+    line-height: 48px;
+    border: 1px solid #CFD2D4;
+    border-left: 0px;
+    border-top: 0px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    background: url(../images/erweima.gif) no-repeat 12px center;
+    background-color: #EBF3FA;
+}
+
+.email {
+    width: 153px;
+    height: 48px;
+    float: left;
+    text-align: center;
+    line-height: 48px;
+}
+
+.land .user {
+    width: 243px;
+    height: 40px;
+    margin: 0 12px;
+    outline: 0;
+    margin-top: 40px;
+    border-radius: 5px;
+    color: #C1BEC0;
+    border-color: #989898;
+    font-size: 12px;
+    padding-left: 30px;
+    background: url(../images/tubiao1.gif)no-repeat 8px center;
+}
+
+.land .pwd {
+    height: 40px;
+    width: 243px;
+    margin: 0 12px;
+    outline: 0;
+    margin-top: 40px;
+    border-radius: 5px;
+    color: #C1BEC0;
+    border-color: #989898;
+    font-size: 12px;
+    padding-left: 30px;
+    margin-top: 20px;
+    background: url(../images/tubiao2.gif)no-repeat 8px center;
+}
+
+.fuxuan {
+    margin: 0 12px;
+    margin-top: 24px;
+    color: #C1BEC0;
+}
+
+span {
+    margin-left: 88px;
+    font-size: 12px;
+    color: #C1BEC0;
+}
+
+.btn {
+    padding: 0 25px;
+    margin-top: 20px;
+}
+
+button {
+    height: 38px;
+    width: 110px;
+    border: 0;
+    box-shadow: 0 0 3px;
+}
+
+.denglu {
+    background-color: #3F8EE3;
+}
+
+.btn .zhuce {
+    margin-left: 24px;
+    background-color: #F0F6FB;
+}
+
+.land .banben {
+    margin-left: 26px;
+}
+
+.land .ssl {
+    margin: 0;
+}
+
+.Button {
+    width: 30px;
+    height: 30px;
+}
+
+.content {
+    background-color: rgba(145, 145, 19, 0.678);
+    width: 300px;
+    height: 50px;
+    display: none;
+    position: absolute;
+    top: 60%;
+}
+
+/* 登录框 */
+
+#denglu {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    border: 1px solid black;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: none;
+}
+
+#denglu span {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    cursor: pointer;
+    color: gray;
+}
+
+/* 输入框 */
+
+.shurukuang {
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    margin-top: 600px;
+    position: absolute;
+}
+
+.shurukuang .b input {
+    width: 100px;
+    height: 20px;
+    margin: 0 auto;
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+/* 密码框 */
+
+#eye {
+    width: 250px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+}
+
+.eyes {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+
+#eye .input {
+    width: 250px;
+    height: 30px;
+}
