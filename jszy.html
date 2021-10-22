@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			button{
+				width: 60px;
+				height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			document.write('<h1>javascript练习题2</h1>')
+			document.write('<h2>第一题</h2>')
+			let a = 5,
+				b = 10;
+			if (a > b) {
+				document.write('a大于b')
+			} else {
+				if (a < b) {
+					document.write('a小于b')
+				} else {
+					document.write('a等于b')
+				}
+			}
+			document.write('<hr>')
+			document.write('<h2>第二题</h2>')
+			let a1 = 50
+			if (a1 % 5 === 0) {
+				document.write(`可以被5整除,结果是 ${a1/5}`)
+			} else {
+				document.write('不可以被5整除')
+			}
+			document.write('<hr>')
+			document.write('<h2>')
+			document.write('第三题')
+			document.write('</h2>')
+			for (let i = 0; i <= 100; i++) {
+				if (i % 2 === 0) {
+					document.write(i + ' ')
+				}
+			}
+			document.write('<h2>第三题</h2>')
+			let j = 0;
+			while (j <= 100) {
+				if (j % 7 === 0) {
+					document.write(j + ' ')
+				}
+				j++;
+			}
+			document.write('<hr>')
+			document.write('<h2>第五题</h2>')
+
+			function bidaxiao(a, b, c) {
+				let max = a > b ? a : (b > c ? b : c)
+				return max;
+			}
+			document.write((6, 7, 8));
+
+			document.write('<hr>')
+			document.write('<h1>javascript练习题3</h1>')
+			document.write('<h2>第一题</h2>')
+			let even = '',
+				odd = '';
+			for (let x = 0; x <= 100; x++) {
+				if (x % 2 === 0) {
+					even = even + x + ' '
+				} else {
+					odd = odd + x + ' '
+				}
+			}
+			document.write(`偶数:${even}`)
+			document.write('<br>')
+			document.write(`奇数:${odd}`)
+			document.write('<hr>')
+			document.write('<h2>第二题</h2>')
+
+			function test() {
+				let sum = 0,
+					Str = '';
+				for (let i = arguments.length - 1; i >= 0; i--) {
+					if (i === 0) {
+					 Str += arguments[i];
+					 }else{
+					Str += arguments[i] + '+';
+				}
+					sum = sum + arguments[i];
+			}
+				return `${Str}=${sum}`;
+			}
+			document.write(test(1, 2, 3,4,5,6,7,8,9));
+			document.write('<br>')
+			document.write(test(3,6,9,1,4,7));
+			document.write('<br>')
+			document.write(test(1))
+			document.write('<hr>')
+			document.write('<h2>第3题</h2>')
+			const one = document.createElement('input')
+			document.body.appendChild(one)
+			const two = document.createElement('input')
+			document.body.appendChild(two)
+			const btn = document.createElement('button')
+			document.body.appendChild(btn)
+			btn.textContent='确定'
+			btn.addEventListener('click', function() {
+				let a2 = one.value,
+					b2 = two.value,
+					c='';
+				const para = document.createElement('p');
+				document.body.appendChild(para)
+				if (a2 === '' || b2 === '') {       //判断a2 b2的值是否为空值
+					para.textContent = '错误信息'	
+				} else if (isNaN(a2) || isNaN(b2)) {  //判断 a2 b2的值是否为非数字
+					para.textContent = '错误信息'
+				} else {					
+					let result = a2> b2?a2:b2 ;
+					para.textContent =result					
+				}
+			})
+		</script>
+	</body>
+</html>
