@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            margin-left: 4px;
+        }
+
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>四则运算</h2>
+    <input type="text" class="num">
+    <select>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type="text" class="num1">
+    <button class="resultBtn">=</button>
+    <input type="text" class="result">
+    <button class="clearBtn">清空</button>
+    <script>
+        document.write('<h1>javascript练习题4</h1>')
+        document.write('<h3>第1题</h3>')
+        {
+            const input = document.createElement('input')
+            const btn = document.createElement('button')
+            document.body.appendChild(input);
+            btn.textContent = '点击切换'
+            document.body.appendChild(btn);
+            const p = document.createElement('p')
+            document.body.appendChild(p);
+            btn.addEventListener('click', function () {
+                let str = input.value;
+                let arr = str.split('.')
+                let newstr = arr.reverse().join('.');
+
+                p.textContent = `转换的结果为${newstr}`;
+            })
+        }
+        document.write('<hr>')
+        document.write('<h3>第2题</h3>')
+
+        {
+            const input = document.createElement('input')
+            const btn = document.createElement('button')
+            document.body.appendChild(input);
+            btn.textContent = '点击切换'
+            document.body.appendChild(btn);
+            const p = document.createElement('p')
+            document.body.appendChild(p);
+            btn.addEventListener('click', function () {
+                let str = input.value;
+                let index = str.lastIndexOf('.')
+                let newstr = str.slice(0, index + 1) + '*'
+                p.textContent = `转换的结果为${newstr}`;
+            })
+        }
+        document.write('<hr>')
+        document.write('<h3>第3题</h3>')
+        {
+            const para = document.createElement('p');
+            document.body.appendChild(para);
+            function time() {
+                let d = new Date();
+                let year = d.getFullYear();
+                let month = d.getMonth();
+                month = month + 1;
+                let date = d.getDate();
+                let arr = ['日', '一', '二', '三', '四', '五', '六', '日']
+                let day = arr[d.getDay()];
+                let hour = d.getHours();
+                let second = d.getSeconds();
+                let minutes = d.getMinutes();
+                let result = `当前时间是:${year}年${month}月${date}日${hour}时${minutes}分${second}秒星期${day}`
+                para.textContent = result;
+            }
+            time();
+        }
+        document.write('<hr>')
+        document.write('<h3>第4题</h3>')
+        {
+            const inp = document.createElement('input')
+            const submit = document.createElement('button')
+            document.body.appendChild(inp)
+            document.body.appendChild(submit)
+            submit.innerHTML = '确定'
+
+            const para = document.createElement('p')
+            document.body.appendChild(para);
+            submit.addEventListener('click', function () {
+                let a = '', b = '';
+                let str = String(inp.value)
+                if (str.length >= 2 && str.length <= 10) {
+                    a = '符合'
+                }
+                else {
+                    b = '不符合'
+                }
+                para.textContent = `字符串长度${a}${b}要求`;
+            })
+        }
+        document.write('<hr>')
+        document.write('<h1>javascript练习题5</h1>')
+        document.write('<h3>第1题</h3>')
+        {
+            let a = 6, b = 7, c = 8, d = 10, e = 3;
+            document.write(`a的值是${a},b的值是${b},c的值是${c},d的值是${d},e的值是${e},其中最大的值是：${Math.max(a, b, c, d, e)}`)
+        }
+        document.write('<hr>')
+        document.write('<h3>第2题</h3>')
+        {
+            let a, b, c, d;
+            a = Math.floor(Math.random() * 10);
+            b = Math.floor(Math.random() * 10);
+            c = Math.floor(Math.random() * 10);
+            d = Math.floor(Math.random() * 10);
+            document.write(`4个随机数字是:${a}${b}${c}${d}`)
+        }
+
+        //四则运算
+        {
+            const num1 = document.querySelector('.num');
+            const num2 = document.querySelector('.num1');
+            const select = document.querySelector('select');
+            const resultBtn = document.querySelector('.resultBtn');
+            const result = document.querySelector('.result');
+            const clearBtn = document.querySelector('.clearBtn');
+            resultBtn.onclick = function () {
+                let aVal = parseFloat(num.value);
+                let bVal = parseFloat(num1.value);
+                if (!aVal || !bVal) {
+                    return window.alert('请输入值')
+                }
+                switch (select.value) {
+                    case '+':
+                        result.value = aVal + bVal;
+                        break;
+                    case '-':
+                        result.value = aVal - bVal;
+                        break;
+                    case '*':
+                        result.value = aVal * bVal;
+                        break;
+                    default:
+                        result.value = aVal / bVal;
+                        break;
+                }
+            }
+            clearBtn.onclick = function () {
+                num1.value = num2.value = result.value = '';
+            }
+        }
+        document.write('<hr>')
+        document.write('<h3>第4题</h3>')
+        {
+            const para = document.createElement('p');
+            document.body.appendChild(para);
+            function time() {
+                let d = new Date();
+                let year = d.getFullYear();
+                let month = d.getMonth();
+                month = month + 1;
+                let date = d.getDate();
+                let arr = ['日', '一', '二', '三', '四', '五', '六', '日']
+                let day = arr[d.getDay()];
+                let hour = d.getHours();
+                let second = d.getSeconds();
+                let minutes = d.getMinutes();
+                let result = `当前时间是:${year}年${month}月${date}日${hour}时${minutes}分${second}秒星期${day}`
+                if (para.textContent = ' ') {
+                    para.textContent = result
+                }
+                else {
+                    para.textContent = ' '
+                }
+            }
+            setInterval(function () {
+                time();
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
