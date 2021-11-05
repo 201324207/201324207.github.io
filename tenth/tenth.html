@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 第一题 */
+        .option {
+            margin-top: 10px;
+            width: 200px;
+            border: 1px solid black;
+        }
+
+        /* 表单验证第一题 */
+        .sub {
+            margin-left: 20px;
+        }
+
+        .from span {
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        /* 表单验证第二题 */
+        .from2 {
+            margin: 0 auto;
+            width: 500px;
+            height: 500px;
+        }
+
+        .from2 form {
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .from2 h1 {
+            text-align: center;
+            font-size: 16px;
+            margin: 0 auto;
+            text-transform: capitalize;
+        }
+
+        .left {
+            display: inline-block;
+            width: 52px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+            text-align: center;
+            background-color: #abcdf0;
+        }
+
+        .right {
+            display: inline-block;
+            width: 250px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+            text-align-last: left;
+            padding-left: 5px;
+            background-color: #f5debe;
+        }
+
+        .foot {
+            display: block;
+            width: 312px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 5px;
+            text-align: center;
+            background-color: #aabbcb;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第一题 -->
+    <h1>第一题</h1>
+    <div class="box">
+        <input type="checkbox" class="all">全选/全不要选
+        <button>反选</button>
+        <div class="option">
+            <input type="checkbox"> java <br>
+            <input type="checkbox"> python <br>
+            <input type="checkbox"> c++ <br>
+            <input type="checkbox"> linux <br>
+            <input type="checkbox"> c# <br>
+        </div>
+    </div>
+    <hr>
+    <h1>表单第一题</h1>
+    <div class="from">
+        <form action="./ok.html" method="post" id="form1">
+            <p>姓名：<label><input type="text" class="name"></label></p>
+            <p>密码：<label><input type="password" class="pwd"></label></p>
+            <p>性别：<input type="radio" name="sex" class="sex1"> 男 <input type="radio" name="sex" class="sex2"> 女</p>
+            <p>年龄：
+                <select>
+                    <option value="age">20</option>
+                    <option value="age">25</option>
+                    <option value="age">30</option>
+                </select>
+            </p>
+            <p class="hob"> 爱好：
+                <input type="checkbox">读书
+                <input type="checkbox">音乐
+                <input type="checkbox">上网
+            </p>
+            <p> 简介：<textarea cols="30" rows="10" class="text"></textarea></p>
+            <input class="sub" type="submit" value="提交"><input class="sub" type="submit" value="重置">
+            <span></span>
+        </form>
+    </div>
+    <hr>
+    <h1>表单第二题</h1>
+    <div class="form2">
+        <h1>information form</h1>
+        <form action="./ok.html" method="POST" id="form2">
+            <label>
+                <span class="left">name</span>
+                <span class="right"><input type="text" name="username" class="name2"></span>
+            </label><br>
+            <label>
+                <span class="left">pwd</span>
+                <span class="right"><input type="password" name="pwd" class="pwd2"></span>
+            </label><br>
+            <span class="left">sex</span>
+            <span class="right"> <label><input type="radio" name="sex" class="Sex"> madle
+                </label>
+                <label>
+                    <input type="radio" name="sex" class="Sex">femal
+                </label>
+            </span><br>
+            <span class="left">age</span>
+            <span class="right">
+                <select name="age">
+                    <option>18岁</option>
+                    <option>19岁</option>
+                    <option>20岁</option>
+                    <option>21岁</option>
+                </select>
+            </span><br>
+            <span class="left">course</span>
+            <span class="right">
+                <label><input class="c" type="checkbox"> Chinese</label>
+                <label><input class="c" type="checkbox"> English</label>
+                <label><input class="c" type="checkbox"> Math</label><br>
+            </span>
+            <span class="foot"><input type="submit" value="sumbit it"> <input type="reset" value="reset it"></span>
+        </form>
+
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        (function () {
+            // 第一题
+            $('.all').click(function () {
+                // 获取全选框的属性值
+                let check = $('.all').prop('checked')
+                // 让input复选框的checked的值等于 全选框的值
+                $('.option input').prop('checked', check);
+            })
+            $('.option input').click(function () {
+                let n1 = $('.option input').length;
+                let n2 = $('.option input:checked').length
+                if (n1 === n2) {
+                    $('.all').prop('checked', true)
+                }
+                else {
+                    $('.all').prop('checked', false)
+                }
+            })
+            $('button').click(function () {
+                // 获取所有input
+                let options = $('.option input');
+                // 循环获得所有input 的checked值 
+                for (let i = 0; i < options.length; i++) {
+                    $('.all').prop('checked', options.checked)
+                    // 如果当前的input 的checked 值为true
+                    if ($(options[i]).prop('checked')) {
+                        // 如果当前的input 的checked 值为true就改为false
+                        $(options[i]).prop('checked', false)
+                    } else {
+                        // 其他的改为true
+                        $(options[i]).prop('checked', true)
+                    }
+                }
+            })
+            // 表单验证第一题
+            const Form = document.querySelector('#form1')
+            const name = document.querySelector('.name');
+            const pwd = document.querySelector('.pwd');
+            const sex1 = document.querySelector('.sex1')
+            const sex2 = document.querySelector('.sex2')
+            const hob = document.querySelectorAll('.hob input')
+            const text = document.querySelector('.text')
+            Form.onsubmit = function (e) {
+                if (name.value === '') {
+                    e.preventDefault();
+                    alert('名字不能为空');
+                }
+                let total = pwd.value.length;
+                if (total < 2 || total > 10) {
+                    window.alert('密码应为2-9位的字符');
+                    e.preventDefault();
+                }
+                if (!sex1.checked && !sex1.checked) {
+                    alert('性别必须选一项')
+                    e.preventDefault();
+                }
+                if (!hob[0].checked && !hob[1].checked && !hob[2].checked) {
+                    alert('必须选取一个爱好')
+                    e.preventDefault();
+                }
+                if (text.value.length < 10) {
+                    alert('简介至少10个字')
+                    e.preventDefault();
+                }
+            }
+
+            // 表单验证第二题
+            const Form2 = document.querySelector('#form2')
+            const name2 = document.querySelector('.name2');
+            const pwd2 = document.querySelector('.pwd2');
+            const Sex = document.querySelectorAll('.Sex')
+            const course = document.querySelectorAll('.c')
+            Form2.onsubmit = function (e) {
+                if (name2.value === '') {
+                    e.preventDefault();
+                    alert('名字不能为空,请输入名字');
+                }
+                let count = pwd2.value.length;
+                if (count < 2 || count > 10) {
+                    window.alert('密码应为2-9位的字符');
+                    e.preventDefault();
+                }
+                if (!Sex[0].checked && !Sex[1].checked) {
+                    alert('性别必须选一项')
+                    e.preventDefault();
+                }
+
+                if (Number(course[0].checked + course[1].checked + course[2].checked) < 2) {
+                    alert('请选择两个爱好')
+                    e.preventDefault();
+                }
+                console.log(Sex[0]);
+            }
+
+        })()
+
+
+    </script>
+</body>
+
+</html>
